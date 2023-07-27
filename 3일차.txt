@@ -1,0 +1,59 @@
+hr DB 사용법
+
+최상위 관리자 계정인 sys계정에 로그인
+
+alter session set "_ORACLE_SCRIPT" = true; 입력
+(18버전에서 계정 이름에 c##을 넣어 만들도록 되어 있는데 제공되는 sql에선 계정에 c##없이 계정을 만들도록 기술되어 있기 때문)
+
+@?/demo/schrema/human_resources/hr_main.sql 입력 후
+1의 값 : hr
+2의 값 : users
+3의 값 : temp
+4의 값 : .../schrema/log 폴더 주소 복사 입력 하면 설치 hr DB가 설치 됨
+
+sql developer에서 hr 계정을 만든 후 사용
+
+hr 계정은 기본적으로 DB가 저장되어 있음
+
+_________________________________________________________________
+
+select문 사용하기
+
+select 문은 데이터를 검색하는데 사용
+ex) select 컬럼명 from 테이블명;
+
+select 뒤에 distinct를 붙여 중복 데이터를 없앨 수 있음
+from 테이블명 뒤에 where 절을 붙여 검색의 조건을 붙일 수 있음
+
+null 값을 검색 하려면 '='이 아닌 is 를 붙여야 함 (not null 포함)
+ex) select 컬럼명 from 테이블명 where 조건명 is null;
+
+컬럼을 연산자로 연산하여 새로운 결과를 나타낼 수도 있음 (컬럼+컬럼, 컬럼+숫자, 숫자+숫자)
+ex) select salary + salary, salary + 10, 10+10 from employees;
+
+연산된 컬럼명은 as 를 통해 별명을 붙일 수 있음. (스페이스바 한번이면 생략 가능)
+ex) select salary + 10 as 인상급여 from employees;
+
+Concatenation (||)를 이용해서 하나의 결과물을 만들 수 있음
+ex) select 컬럼명 || 컬럼명 (as 별명) from 테이블명;
+
+오라클에서 select 문을 이용하여 시간을 계산할 수 있음
+sysdate(현재시간), 정수 1은 시간연산 할 때 하루를 의미함
+ex) sysdate + 1 은 현재시간 + 1 (다음날)
+    sysdate - 1 은 현재시간 - 1 (전날)
+
+1/24 는 1시간, 1/24/60은 1분, 1/24/60/60은 1초를 의미
+
+월이나 년 관련 데이터를 계산하려면 add_month()함수를 이용해야 함
+ex) add_month(sysdate, 1) from dual; 1달후
+    add_month(sysdate, -1) from dual; 1달전
+    add_month(sysdate, 12) from dual; 1년후
+    add_month(sysdate, -12) from dual; 1년전
+
+1달후를 30을 더해 계산하면, 1달이 31 29 28일인 달이 있으니 문제가 됨
+1년후도 같은 맥락
+
+select last_day(sysdate) from dual; 은 오늘의 마지막 달의 일자가 출력됨
+        next_day(sysdate, '월요일')은 오늘 날짜 기준으로 다음 월요일이 출력됨
+
+select next_day(sysdate, 1) from dual;  1은 일요일, 2는 화요일, 7은 토요일
