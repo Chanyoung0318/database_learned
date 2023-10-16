@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var money=0;
+        
+        function bt(type,input){
+            str="";
+            
+                switch(type){
+                    
+                    case 0:
+                    money += input;
+                    break;
+
+                    case 1: 
+                    if(money<1200){
+                    alert("잔액부족")
+                    }else{
+                    money -= input;
+                    str += "<img src='/image/콜라.jpg'>"
+                    }
+                    break;
+                    case 2:
+                    if(money<1100){
+                    alert("잔액부족")
+                    }else{ 
+                    money -= input;
+                    str += "<img src='/image/사이다.jpg'>"
+                    }
+                    break;
+                    
+
+                    case 3:
+                    if(money<1000){
+                    alert("잔액부족")
+                    }else{ 
+                    money -= input;
+                    str += "<img src='/image/환타.jpg'>"
+                    }
+                    break;
+                    
+
+                    case 4: 
+                    if(money<=400){
+                    alert("잔액부족")
+                    }else{
+                    money -= input;
+                    str += "<img src='/image/블랙.gif'>"
+                    }
+                    break;
+                }
+                document.getElementById("last").innerHTML+=str;
+                document.getElementById("current").value=money;
+        } 
+    
+
+    
+
+        function back(){
+            var five=0;
+            var one=0;
+                while(money>0){
+                    if(money >=500){
+                        money -= 500;
+                        five++;
+                    }
+                    else{
+                        money -= 100;
+                        one++;
+                    }
+                }
+                document.getElementById("current").value=money;
+                document.getElementById("current2").value=
+                "500원"+five+"개"+"100원"+one+"개";
+                
+            
+        }
+    </script>
+    <style>
+        img{
+            width: 100px;
+            height: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <table border="2" width="400px" height="500">
+        <tr>
+            <th 
+                bgcolor="lightgray" colspan="4" height="50">
+                <h1>
+                    <font color="red">자</font>
+                    <font color="yellow">판</font>
+                    <font color="green">기</font>
+                </h1>
+            </th></tr>
+        <tr align=center>
+            <td>
+                <img src="/image/콜라.jpg">
+                <br><button onclick="bt(1,1200)">1200원</button></td>
+            <td>
+                <img src="/image/사이다.jpg">
+                <br><button onclick="bt(2,1100)">1100원</button></td>
+            <td>
+                <img src="/image/환타.jpg">
+                <br><button onclick="bt(3,1000)">1000원</button></td>
+            <td>
+                <button onclick = "bt(0,1000)">1000원</button><br>
+                <button onclick = "bt(0,500)">500원</button><br>
+                <button onclick = "bt(0,100)">100원</button><br>
+                <input type="text" id="current" readonly value="0원" >
+            </td>
+        </tr>
+        <tr align=center>
+            <td>
+                <img src="/image/블랙.gif"><br>
+                <button onclick ="bt(4,400)">400원</button><br>
+            </td>
+            <td>
+                <img src="/image/블랙.gif"><br>
+                <button onclick = "bt(4,400)">400원</button><br>
+            </td>
+            <td>
+                <img src="/image/블랙.gif"><br>
+                <button onclick = "bt(4,400)">400원</button><br>
+            </td>
+            <td>
+                <button onclick = "back()">잔돈반환</button>
+            </td>
+        </tr>
+        <tr align=center>
+            <td colspan="3" id = "last"></td>
+            <td>
+                <input type="text" id="current2" readonly value=잔돈 > 
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

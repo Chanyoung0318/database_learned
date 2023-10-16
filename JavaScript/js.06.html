@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var obj = {};
+    document.write(typeof obj,"<br>");
+
+    var human = {
+        name:'홍길동',
+        age:32,
+        friends: ['고길동','고길남'],
+        address:{
+            id:234,
+            area:'천안',
+            comment:'주소임'
+        },
+        myFunction:function(){
+            alert(this.name);
+        }
+    }
+    document.write(human.name,"<br>");
+    human.name = "홍길남";
+    document.write(human.name,"<br>");
+    document.write(human.address.area,"<br>");
+    human.myFunction();
+
+    human.email = 'hello@daum.net';
+
+    document.write(human.email);
+    delete(human.email);
+    
+</script>

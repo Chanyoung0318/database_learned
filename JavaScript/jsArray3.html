@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arra = [
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,0,
+             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,2,2,2,2,2,0,0,0,2,0,0,0,0,0,1,2,2,2,1,0,2,1,1,1,2,
+             0,2,2,2,2,2,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,1,2,1,1,1,2,1,2,1,1,1,2,
+             1,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+             [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,1,2,1,1,1,2,1,2,1,1,1,2,
+             1,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+             [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,1,2,1,1,1,2,1,2,1,1,1,2,
+             1,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+             [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,1,2,1,1,1,2,1,2,1,1,1,2,
+             1,2,2,2,2,2,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+             [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,1,2,1,1,1,2,1,2,1,1,1,2,
+             1,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+             [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,2,1,1,1,2,1,2,1,1,1,2,
+             0,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+             [0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,2,1,1,1,2,1,1,2,1,2,0,
+             0,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0],
+            [0,0,0,0,0,2,2,2,2,2,0,0,0,2,2,2,2,2,0,0,2,2,2,1,1,1,1,2,0,0,
+             0,2,2,2,2,2,0,0,0,0,2,2,2,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,
+             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        ];
+    
+        function tab(y,x){
+            var str="";
+            str+="<table border='1' width='1200px' height='300px'>";
+            for(var i=0; i<y;i++){
+                str+="<tr>";
+                    for(var j=0; j<x; j++){
+                        str+=`<td id=y${i}x${j}>`;
+                        str+="</td>";
+                    }
+                    str+="</tr>";
+            }
+            str+="</table>";
+            return str;
+        }
+        function draw(arr){
+            var y=arr.length;
+            var x=arr[0].length;
+            for(var i=0; i<y; i++){
+                for(var j=0;j<x;j++){
+                if(arr[i][j]==1){
+                    document.getElementById("y"+i+"x"+j).setAttribute("bgcolor","pink");
+                }else if(arr[i][j]==2){
+                    document.getElementById("y"+i+"x"+j).setAttribute("bgcolor","red");
+                }
+            }
+            }
+        }
+    
+        function moveLeft() {
+        for (var i = 0; i < arra.length; i++) {
+            var firstItem = arra[i][0]; // 첫 번째 열의 값을 저장
+            for (var j = 0; j < arra[i].length - 1; j++) {
+                arra[i][j] = arra[i][j + 1]; // 각 열을 왼쪽으로 이동
+            }
+            arra[i][arra[i].length - 1] = firstItem; // 마지막 열에 저장한 값을 추가
+        }
+        draw(arra); // 이동 후에 배경색을 다시 그림
+    }
+    
+        window.onload = function(){
+            document.body.innerHTML=tab(arra.length, arra[0].length);
+            draw(arra);
+            
+        }
+        setInterval(moveLeft,1000);
+    </script>
+</head>
+<body>
+    <button id="up">위로 움직이기</button><button id="down">아래로 움직이기</button><button id="left">왼쪽으로 움직이기</button>
+    <button id="right">오른쪽으로 움직이기</button><button id="stop">정지</button><button id="speedUp">속도 증가</button><button id="speedDown">속도 감소</button>
+</body>
+</html>

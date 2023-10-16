@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContentExample">
+        이것은 <strong class="hide">textContent</strong>와<em>innerText</em>의 차이를 보여주는 예제입니다.
+    </div>
+
+    <div id="innerTextExample">
+        이것은 <strong class="hide">innerText</strong>와<em>textContent</em>의 차이를 보여주는 예제 입니다.
+    </div>
+    <div id="innerHTMLExample">
+        이것은 <strong class="hide">innerHTML</strong>와<em>textContent</em>의 차이를 보여주는 예제 입니다.
+    </div>
+    <input type="text" id="valueExample" value="이것은 value 예제입니다."/>
+    
+    <script>
+        var textContentElement = document.getElementById("textContentExample");
+        var textContentValue = textContentElement.textContent;
+
+        var innerTextElement = document.getElementById("innerTextExample");
+        var innerTextValue = innerTextElement.innerText;
+
+        var innerHTMLElement = document.getElementById("innerHTMLExample");
+        var innerHTMLValue = innerHTMLElement.innerHTML;
+
+        var valueInputElement = document.getElementById("valueExample");
+        var valueInputValue = valueInputElement.value;
+
+        console.log("textContent 값: "+textContentValue);
+        console.log("innerText 값: "+innerTextValue);
+        console.log("innerHTML 값: "+innerHTMLValue);
+        console.log("value 값: "+valueInputValue);
+    </script>
+</body>
+</html>

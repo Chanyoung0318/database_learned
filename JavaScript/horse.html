@@ -1,0 +1,98 @@
+<!DOCTYPE html > 
+<html lang = "en" > 
+<head> 
+<meta charset = "UTF-8" > 
+<meta http-equiv = "X-UA-Compatible" content = "IE=edge" > 
+<meta name = "viewport" content = "width=device-width, initial-scale=1.0" > 
+<title> Document </title> 
+<style> 
+#line { 
+width : 800px ; 
+border-right : solid 2px black ; 
+} 
+</style> 
+<script> 
+//가진돈 건돈
+//var totalMoney=10000; 
+// var isEnd=[false,false,false,false];//false 안도착 true 도착
+// var rank=[0,0,0,0]; //도착순위
+// var rankCount=1; //순위설정
+var rank=[]; 
+function start(){ 
+document.getElementById( "start" ).style.display= 'none' ; 
+// isEnd=[false,false,false,false];//false 안도착 true 도착
+// rank=[0,0,0,0]; //도착순위
+// rankCount=1; //순위설정
+rank=[]; 
+document.getElementById( "h1" ).style.marginLeft= '0px' ; 
+document.getElementById( "h2" ).style.marginLeft= '0px' ; 
+document.getElementById( "h3" ).style.marginLeft= '0px' ; 
+document.getElementById( "h4" ).style.marginLeft= '0px' ; 
+timerId=setInterval(gaming, 100 ); 
+} 
+function gaming(){ 
+document.getElementById( "h1" ).style.marginLeft= 
+parseInt(document.getElementById( "h1" ).style.marginLeft)+parseInt(Math.random()* 50 )+ 'px' ; 
+document.getElementById( "h2" ).style.marginLeft= 
+parseInt(document.getElementById( "h2" ).style.marginLeft)+parseInt(Math.random()* 50 )+ 'px' ; 
+document.getElementById( "h3" ).style.marginLeft= 
+parseInt(document.getElementById( "h3" ).style.marginLeft)+parseInt(Math.random()* 50 )+ 'px' ; 
+document.getElementById( "h4" ).style.marginLeft= 
+parseInt(document.getElementById( "h4" ).style.marginLeft)+parseInt(Math.random()* 50 )+ 'px' ; 
+if (parseInt(document.getElementById( "h1" ).style.marginLeft)> 800 ){ 
+document.getElementById( "h1" ).style.marginLeft= '810px' ; 
+if (!rank.includes( 1 )){//1번말이 이미 도착했는 확인해서
+rank.push( 1 );//1번말이 없으면 1번말을 추가한다. 
+} 
+// if(!isEnd[0]){ 
+// isEnd[0]=true; rank[0]=rankCount; rankCount++; 
+// } 
+} 
+if (parseInt(document.getElementById( "h2" ).style.marginLeft)> 800 ){ 
+document.getElementById( "h2" ).style.marginLeft= '810px' ; 
+if (!rank.includes( 2 )){ 
+rank.push( 2 ); 
+} 
+// if(!isEnd[1]){ 
+// isEnd[1]=true; rank[1]=rankCount; rankCount++; 
+// } 
+} 
+if (parseInt(document.getElementById( "h3" ).style.marginLeft)> 800 ){ 
+document.getElementById( "h3" ).style.marginLeft= '810px' ; 
+if (!rank.includes( 3 )){ 
+rank.push( 3 ); 
+} 
+// if(!isEnd[2]){ 
+// isEnd[2]=true; rank[2]=rankCount; rankCount++; 
+// } 
+} 
+if (parseInt(document.getElementById( "h4" ).style.marginLeft)> 800 ){ 
+document.getElementById( "h4" ).style.marginLeft= '810px' ; 
+if (!rank.includes( 4 )){ 
+rank.push( 4 ); 
+} 
+// if(!isEnd[3]){ 
+// isEnd[3]=true; rank[3]=rankCount; rankCount++; 
+// } 
+} 
+if (parseInt(document.getElementById( "h1" ).style.marginLeft)> 800 && 
+parseInt(document.getElementById( "h2" ).style.marginLeft)> 800 && 
+parseInt(document.getElementById( "h3" ).style.marginLeft)> 800 && 
+parseInt(document.getElementById( "h4" ).style.marginLeft)> 800 ){ 
+clearInterval(timerId); 
+alert(rank); 
+document.getElementById( "start" ).style.display= 'inline' ; 
+} 
+} 
+</script> 
+</head> 
+<body> 
+<button onclick = "start()" id = start > start </button><br> 
+<div id = line > 
+<img src = "image/정상수.gif" id = "h1" width = 100 height = 100 ><br> 
+<img src = "image/정상수.gif" id = "h2" width = 100 height = 100 ><br> 
+<img src = "image/정상수.gif" id = "h3" width = 100 height = 100 ><br> 
+<img src = "image/정상수.gif" id = "h4" width = 100 height = 100 ><br> 
+</div> 
+</body> 
+</html> 
