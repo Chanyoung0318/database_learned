@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #element {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#fadeInButton").click(function(){
+                $("#element").fadeIn(1000);
+            });
+            $("#fadeOutButton").click(function(){
+                $("#element").fadeOut(1000);
+            });
+            $("#slideInButton").click(function(){
+                $("#element").slideUp(1000);
+            });
+            $("#slideOutButton").click(function(){
+                $("#element").slideDown(1000);
+            });
+            $("#toggleButton").click(function(){
+                $("#element").fadeToggle(1000);
+            });
+            $("#customAnimateButton").click(function(){
+                $("#element").animate({
+                    width: "200px",
+                    opacity: 0.5,
+                    'margin-left': "50px" // 'margin-left'로 수정
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="fadeInButton">Fade In</button>
+    <button id="fadeOutButton">Fade Out</button>
+    <button id="slideInButton">Slide In</button>
+    <button id="slideOutButton">Slide Out</button>
+    <button id="toggleButton">Toggle</button>
+    <button id="customAnimateButton">Custom Animate</button>
+    <div id="element"></div>
+</body>
+</html>

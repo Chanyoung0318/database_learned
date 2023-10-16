@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#childrenButton").click(function(){
+                var directChildren = $("#parent").children("p");
+                var result = "children() 메서드 결과: "+ directChildren.length + "개의 직계 자식 <p> 요소";
+                $("#result").text(result);
+            });
+            $("#findButton").click(function(){
+                var descendants = $("#parent").find("p");
+                var result = "find() 메서드 결과: " + descendants.length + "개의 모든 자손 <p> 요소";
+                $("#result").text(result);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>
+        chidren() vs find() 메서드 예제
+    </h1>
+    <div id="parent">
+        <p>직계 자식1</p>
+        <p>직계 자식2</p>
+        <div>
+            <p>자식의 자식1</p>
+            <p>자식의 자식2</p>
+        </div>
+    </div>
+    <button id="childrenButton">children()</button>
+    <button id="findButton">find()</button>
+    <div id="result"></div>
+</body>
+</html>

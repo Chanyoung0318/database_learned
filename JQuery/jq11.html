@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        var cnt = 0;
+        $(function(){
+            $("button").click(function(){
+                switch(cnt){
+                case 0:
+                    $("div").animate({left: "100px"});
+                    cnt++;
+                break;
+                case 1:
+                    $("div").animate({top: "100px"});
+                    cnt++;
+                break;
+                case 2:
+                    $("div").animate({left: "10px"});
+                    cnt++;
+                break;
+                case 3:
+                    $("div").animate({top: "30px"});
+                    cnt = 0;
+                break;
+        }
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <button>Start Animation</button>
+    <div style="background:#98bf21; height: 100px; width: 100px; position: absolute;"></div>
+</body>
+</html>

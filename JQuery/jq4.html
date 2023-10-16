@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("ul:first li:first").css("color","blue");
+            $("ul li:first-child").css("font-weight","bold");
+            $("[href]").css("text-decoration","underline");
+            $("a[target='_blank']").css("color","green");
+            $("a[target!='_blank']").css("color","red");
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>첫 번째 목록 항목</li>
+        <li>두 번째 목록 항목</li>
+    </ul>
+    <ul>
+        <li>다른 목록 항목</li>
+        <li>또 다른 목록 항목</li>
+    </ul>
+    <a href="#">링크 1</a>
+    <a href="#">링크 2</a>
+
+    <a href="#" target="_blank">새 창 열림</a>
+    <a href="#" target="_blank">새 창 열림</a>
+    <a href="#">현재 창 열림</a>
+    <a href="#">현재 창 열림</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#appendButton").click(function(){
+                var newElement = "<p>Appended paragraph.</p>";
+                $("#container").append(newElement);
+            });
+            $("#prependButton").click(function(){
+                var newElement = "<p>prepended paragraph.</p>";
+                $("#container").prepend(newElement);
+            });
+            $("#afterButton").click(function(){
+                var newElement = "<p>paragraph inserted after.</p>";
+                $("#container p").after(newElement);
+            });
+            $("#beforeButton").click(function(){
+                var newElement = "<p>paragraph inserted before.</p>";
+                $("#container p").before(newElement);
+            });
+            
+        })
+    </script>
+</head>
+<body>
+    <h1>
+        append(), prepend(), after(), before() 예제
+    </h1>
+    <div id="container">
+        <p>This is a paragraph</p>
+    </div>
+    <button id="appendButton">append()</button>
+    <button id="prependButton">prepend()</button>
+    <button id="afterButton">after()</button>
+    <button id="beforeButton">before()</button>
+</body>
+</html>

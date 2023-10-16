@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var firstItem = $("li").first().text();
+            console.log("first(): " + firstItem);
+
+            var lastItem = $("li").last().text();
+            console.log("last(): " + lastItem);
+
+            var thirdItem = $("li").eq(2).text();
+            console.log("eq(): " + thirdItem);
+
+            var filteredItems = $("li").filter(function () {
+                return $(this).text().includes("2");
+            }).text();
+            console.log("filter(): " + filteredItems);
+
+            var notItems = $("li").not(":contains('2')").text();
+            console.log("not(): " + notItems);
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>항목 1</li>
+        <li>항목 2</li>
+        <li>항목 3</li>
+        <li>항목 4</li>
+        <li>항목 5</li>
+    </ul>
+</body>
+
+</html>

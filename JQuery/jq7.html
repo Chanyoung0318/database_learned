@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#keyPressExample").keypress(function(event){
+                var keyCode = event.which;
+                $("#keyPressResult").text("키 코드: " + keyCode);
+            });
+            $("#keyDownExample").keydown(function(event){
+                var keyCode = event.which;
+                $("#keyDownResult").text("키 코드: " + keyCode);
+            });
+            $("#keyUpExample").keyup(function(event){
+                var keyCode = event.which;
+                $("#keyUpResult").text("키 코드: " + keyCode);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="keyPressExample" type="text" placeholder="여기 입력">
+    <p id="keyPressResult">키 코드: </p>
+    <input id="keyDownExample" type="text" placeholder="여기 입력">
+    <p id="keyDownResult">키 코드: </p>
+    <input id="keyUpExample" type="text" placeholder="여기 입력">
+    <p id="keyUpResult">키 코드: </p>
+</body>
+</html>

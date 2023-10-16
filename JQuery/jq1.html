@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토글 예제</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#toggleButton").click(function(){
+                $("#myDiv").toggle();
+            });
+        });
+    </script>
+    <style>
+        #myDiv {
+            display: none;
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton">토글</button>
+    <div id="myDiv">이 div는 토글됩니다.</div>
+</body>
+</html>

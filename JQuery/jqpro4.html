@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div01{
+            outline: 1px solid rgb(58, 4, 4);
+            float: left;
+            width: 200px;
+            height: 200px;
+            padding: 0px;
+            background-color: rgb(255, 103, 103);
+            overflow: hidden;
+        }
+        .div02{
+            outline: 1px solid rgb(58, 4, 4);
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            padding: 0px;
+            background-color: rgb(216, 59, 59);
+            vertical-align: top;
+        }
+    </style>
+    <script>
+        var startMenu="box1";
+        function intervalControl(){
+            $("background>div").each(function(){
+                if(startMenu==$(this).attr("id")){
+                    $(this).animate({width:"400"},300);
+                }else{
+                    $(this).animate({width:"200"},300);
+                }
+            })
+        }
+        $(function(){
+            $("#background").mouseleave(function(){
+
+            })
+
+            $(".div02").hover(
+                function(){
+                    $(".div01").animate({width:"200"},300);
+                    $(this).parent().parent().animate({width:"400"},300);
+                },
+                function(){
+                    
+                }
+            )
+        })
+    </script>
+</head>
+<body>
+    <div id="background">
+        <div class="div01" id="box1">
+            <div style="width:400; background-color: black;">
+            <div class="div02">
+                <span><img src="image/웃음벨1.jpg" width="200" height="200"></span>
+            </div><img src="image/웃음벨2.jpg" width="200" height="200">
+        </div>
+    </div>
+    <div class="div01" id="box2">
+        <div style="width: 400; background-color: black;">
+            <div class="div02">
+                <span>
+                    <img src="image/웃음벨1.jpg" width="200" height="200">
+                </span>
+            </div><img src="image/웃음벨3.jpg" width="200" height="200">        
+        </div>
+    </div>
+    <div class="div01" id="box3">
+        <div style="width: 400; background-color: black;">
+            <div class="div02">
+                <span>
+                    <img src="image/웃음벨1.jpg" width="200" height="200">
+                </span>
+            </div><img src="image/웃음벨4.jpg" width="200" height="200">        
+        </div>
+    </div>
+</body>
+</html>

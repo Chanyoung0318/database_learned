@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(":button").css("background-color","blue");
+            $("tr:even").css("background-color","lightgray");
+            $("tr:odd").css("background-color","lightblue");
+        });
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button>버튼 1</button>
+    <button>버튼 2</button>
+    <input type="button" value="입력 필드 1">
+    <input type="button" value="입력 필드 2">
+    <table>
+        <tr>
+            <td>테이블 셀 1-1</td>
+            <td>테이블 셀 1-2</td>
+        </tr>
+        <tr>
+            <td>테이블 셀 2-1</td>
+            <td>테이블 셀 2-2</td>
+        </tr>
+    </table>
+</body>
+</html>

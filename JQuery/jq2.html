@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#hideThisbutton").click(function(){
+                $(this).hide();
+            });
+            $("#hidePbutton").click(function(){
+                $("p").hide();
+            });
+            $("#hideClassbutton").click(function(){
+                $(".test").hide();
+            });
+            $("#hideIdbutton").click(function(){
+                $("#tests").hide();
+            });
+        });
+    </script>
+    <style>
+        #test {
+            display: none;
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button id="hideThisbutton">$(this).hide()</button>
+    <button id="hidePbutton">$("p").hide()</button>
+    <button id="hideClassbutton">$(".test").hide()</button>
+    <button id="hideIdbutton">$("#test").hide()</button>
+    <div id="test">이 요소는 숨겨집니다</div>
+    <p>이것은 문단입니다.</p>
+    <p class="test">이것도 문단입니다. (class="test" 포함)</p>
+    <p id="tests">이것도 문단입니다. (class="test" 포함)</p>
+</body>
+</html>
